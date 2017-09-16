@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PWA 渐进式网页应用</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h3>Revision 1</h3>
+    <div class="main-text">Minimal PWA, open Console for more--</div>
+    <script>
+        // 可以让网页在已关闭的情况下还可以运行
+        // 页面的缓存，离线offline，后台通知--网页留存度140%
+        if(navigator.serviceWork != null){
+            navigator.serviceWorker.register('sw.js')
+                .then(function(registration) {
+                    console.log('Registered events at scope:',registration.scope)
+                })
+        }
+    </script>
+</body>
+</html>
